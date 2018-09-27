@@ -8,7 +8,7 @@ You can find more information about QUIC [here](https://www.chromium.org/quic).
 
 This player is based off of [ExoPlayer](https://github.com/google/ExoPlayer) using QUIC extension.
 
-# QUICstart
+# Quicstart
 
 You would probably ready to send QUIC request, but the endpoint might not be able to handle QUIC requests.
 
