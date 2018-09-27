@@ -3,6 +3,7 @@ package com.example.takusemba.quicplayer
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.ext.cronet.CronetDataSourceFactory
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
   override fun onStart() {
     super.onStart()
-    val userAgent = "takusemba"
+    val userAgent = "youUserAgent"
     val cronetEngine = CronetEngine.Builder(this).enableQuic(true).build()
     val wrapper = CronetEngineWrapper(cronetEngine)
     val executor = Executors.newSingleThreadExecutor()
@@ -35,6 +36,11 @@ class MainActivity : AppCompatActivity() {
     playerView.player = player
 
     val uri = Uri.parse(BuildConfig.STREAMING_URL)
+
+    if (uri == Uri.EMPTY) {
+      Log.d("CRONET_SAMPLE", "uri is empty. please specify playlist url")
+    }
+
     val mediaSource = HlsMediaSource.Factory(factory)
         .setAllowChunklessPreparation(false)
         .createMediaSource(uri)
