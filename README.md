@@ -32,4 +32,4 @@ For more information, you should check [here](https://github.com/mholt/caddy/wik
 
 # Others
 
-Slides: [request in a QUIC way](https://speakerdeck.com/takusemba/request-in-a-quic-way-at-shibuya-dot-apk-number-28)
+Slide: [request in a QUIC way](https://speakerdeck.com/takusemba/request-in-a-quic-way-at-shibuya-dot-apk-number-28)
