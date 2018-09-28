@@ -35,12 +35,11 @@ class MainActivity : AppCompatActivity() {
     val playerView = findViewById<PlayerView>(R.id.player_view)
     playerView.player = player
 
-    val uri = Uri.parse(BuildConfig.STREAMING_URL)
-
-    if (uri == Uri.EMPTY) {
+    val url = BuildConfig.STREAMING_URL
+    if (url.isBlank() || url == "null") {
       Log.d("CRONET_SAMPLE", "uri is empty. please specify playlist url")
     }
-
+    val uri = Uri.parse(url)
     val mediaSource = HlsMediaSource.Factory(factory)
         .setAllowChunklessPreparation(false)
         .createMediaSource(uri)
